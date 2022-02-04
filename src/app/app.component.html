@@ -1,6 +1,27 @@
+<h2>Inicio Class</h2>
+<input type="text" required #nombreInput="ngModel" [(ngModel)]="person.nombre">
+<p class="message-error" [class.invalid]="nombreInput.invalid"> El campo es requerido</p>
+<label>Nombre:</label>
+<input type="text" required #nombreInput2="ngModel" [(ngModel)]="person.nombre">
+<p [style.font-style]="nombreInput2.invalid?'italic':'normal'"> Texto Texto Texto Texto</p>
+
+<div class="agruparColumnas">
+  <div>
+    <input type="text"  [(ngModel)]="withdImage">
+  </div>
+  <div>
+    <img  [style.width.px]="withdImage" [src]="img">
+  </div>
+
+</div>
+
+<h2>Fin Class</h2>
+<hr>
+
+
 <h2>Inicio ngSwitch</h2>
 <input type="text" [(ngModel)]="person.nombre">
-<div [ngSwitch]="person.nombre" >
+<div [ngSwitch]="person.nombre">
 
   <p *ngSwitchCase="'Jairo'">Soy Jairo </p>
   <p *ngSwitchCase="'Yoryina'">Soy Yoryina</p>
@@ -13,7 +34,7 @@
 
 <p>INICIO NGFOR para OBJETOS</p>
 <div class="products--grids">
-  <div *ngFor="let producto of products" >
+  <div *ngFor="let producto of products">
 
     <img [src]="producto.image">
     <h2>{{producto.price}}</h2>
@@ -89,4 +110,3 @@
 <h2>{{'Hola Mundo'.repeat(5)}}</h2>
 <p>3+3={{3+3}}</p>
 <h3>Hola, soy {{name}} y tengo {{age}}</h3>
-

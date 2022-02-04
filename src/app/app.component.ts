@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name = 'jairo';
+  withdImage=15;
   age = 90;
   img = 'https://source.unsplash.com/random';
   btnDisable = false;
