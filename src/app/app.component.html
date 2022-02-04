@@ -1,0 +1,92 @@
+<h2>Inicio ngSwitch</h2>
+<input type="text" [(ngModel)]="person.nombre">
+<div [ngSwitch]="person.nombre" >
+
+  <p *ngSwitchCase="'Jairo'">Soy Jairo </p>
+  <p *ngSwitchCase="'Yoryina'">Soy Yoryina</p>
+  <p *ngSwitchCase="'Pedro'">Soy Pedro</p>
+  <p *ngSwitchDefault="">Soy nadie</p>
+</div>
+
+<h2>Fin ngSwitch</h2>
+
+
+<p>INICIO NGFOR para OBJETOS</p>
+<div class="products--grids">
+  <div *ngFor="let producto of products" >
+
+    <img [src]="producto.image">
+    <h2>{{producto.price}}</h2>
+    <p>{{producto.name}}</p>
+
+  </div>
+</div>
+
+<p>FIn NGFOR para OBJETOS</p>
+
+<p>INICIO NGFOR</p>
+<input type="text" [(ngModel)]="newName">
+<button (click)="addName()">Añadir Boton</button>
+<ul>
+  <li *ngIf="nombres.length===0">No hay Nombres</li>
+  <li *ngFor="let nombre of nombres; index as i">
+    {{i}}-{{nombre}}
+    <button (click)="deleteName(i)">Eliminar</button>
+  </li>
+</ul>
+
+<p>FIN NGFOR</p>
+
+
+
+<p>INICIO NGIF</p>
+<input type="text" required [(ngModel)]="person.nombre">
+<p *ngIf="person.nombre==='Jairo' && person.edad>15 ; else myTemplate"> Eres Jairo</p>
+<ng-template #myTemplate>
+  <p>Soy el Else Muahahaha</p>
+</ng-template>
+
+<p *ngIf="person.nombre==='Yoryina'"> Eres Yoryina</p>
+
+
+
+
+<p>Fin NGIF</p>
+
+<p>INICIO NGMODULE</p>
+<p>Nombre: {{person.nombre}}</p>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.nombre">
+<p>Valido:{{nameInput.valid}}</p>
+
+<p>Edad: {{person.edad}}</p>
+<input type="number" max="18" min="10" required #edadInput="ngModel" [(ngModel)]="person.edad">
+<p>Valido:{{edadInput.valid}}</p>
+
+<p>FIN NGMODULE</p>
+
+<button (click)="toggleButton()">Toogle Button</button>
+<p>Edad: {{person.edad}}</p>
+<p>Nombre: {{person.nombre}}</p>
+<input type="text" [value]="person.nombre" (keyup)="changeName($event)">
+<button (click)="incrementarEdad()">Incrementar edad</button>
+<div class="box" (scroll)="scrollEvent($event)">
+  <p>Lorem, ipsum dolor sit amet consectetur
+    adipisicing elit. Ratione reprehenderit
+    laudantium harum facilis cupiditate dolorum
+    sunt quisquam! Natus voluptatem dicta,
+    necessitatibus accusantium impedit
+    deserunt quam quia laboriosam quis,
+    ratione explicabo?</p>
+</div>
+
+
+
+<button [disabled]="btnDisable">Enviar</button>
+<input type="text" [value]="person.nombre">
+<progress max="100" [value]="person.edad"></progress>
+
+<h1>Hola Mundo</h1>
+<h2>{{'Hola Mundo'.repeat(5)}}</h2>
+<p>3+3={{3+3}}</p>
+<h3>Hola, soy {{name}} y tengo {{age}}</h3>
+
