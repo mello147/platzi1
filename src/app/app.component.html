@@ -1,3 +1,58 @@
+<h2>Inicio Form</h2>
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" required id="name" [(ngModel)]="register.name" />
+    <p>Mensajes de Error</p>
+  </div>
+  <div class="input-group">
+    <label for="email">Email:</label>
+    <input type="text" name="email" required id="email" [(ngModel)]="register.email" />
+    <p>Mensajes de Error</p>
+  </div>
+  <div class="input-group">
+    <label for="password">Password:</label>
+    <input type="password"  name="password"  required id="password" [(ngModel)]="register.password"/>
+    <p>Mensajes de Error</p>
+  </div>
+  <button [disabled]="myForm.invalid" type="submit"  >Registrar</button>
+  <button type="button">Accion</button>
+</form>
+
+
+<h2>Fin Form</h2>
+
+
+<h2>Inicio NgClass</h2>
+<input type="text" required #nombreInput4="ngModel" [(ngModel)]="person.nombre">
+<hr class="line-error" [ngClass]="{
+      'valid':nombreInput4.valid,
+      'invalid':nombreInput4.invalid
+
+    }">
+<p class="message-error" [class.invalid]="nombreInput4.invalid"> El campo es requerido</p>
+<div class="agruparColumnas">
+  <div>
+    <input type="number" [(ngModel)]="box.height">
+    <input type="number" [(ngModel)]="box.with">
+    <input type="color" [(ngModel)]="box.color">
+  </div>
+  <div [ngStyle]="{
+      'width.px':box.with,
+      'height.px':box.height,
+      'background-color':box.color
+  }">
+
+  </div>
+  <div>
+
+  </div>
+
+</div>
+
+<h2>Fin NgClass</h2>
+
+
 <h2>Inicio Class</h2>
 <input type="text" required #nombreInput="ngModel" [(ngModel)]="person.nombre">
 <p class="message-error" [class.invalid]="nombreInput.invalid"> El campo es requerido</p>
@@ -7,10 +62,10 @@
 
 <div class="agruparColumnas">
   <div>
-    <input type="text"  [(ngModel)]="withdImage">
+    <input type="text" [(ngModel)]="withdImage">
   </div>
   <div>
-    <img  [style.width.px]="withdImage" [src]="img">
+    <img [style.width.px]="withdImage" [src]="img">
   </div>
 
 </div>
